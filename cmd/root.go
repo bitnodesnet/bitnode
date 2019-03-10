@@ -12,7 +12,7 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "cluster",
+	Use:   "bitnode",
 	Short: "Cluster managament application",
 	Long:  "",
 }
@@ -33,10 +33,10 @@ func init() {
 	user, err := user.Current()
 	if err != nil {
 		log.Println("Error getting current user info, defaulting configuration to current directory")
-		rootCmd.PersistentFlags().StringP("config", "c", "cluster_config.db", "Path to cluster config.db file")
+		rootCmd.PersistentFlags().StringP("config", "c", "bitnode_config.db", "Path to bitnode config.db file")
 	} else {
-		rootCmd.PersistentFlags().StringP("config", "c", user.HomeDir+"/.cluster/config.db", "Path to cluster config.db file")
+		rootCmd.PersistentFlags().StringP("config", "c", user.HomeDir+"/.bitnode/config.db", "Path to bitnode config.db file")
 	}
 
-	viper.BindPFlag("cluster.db", rootCmd.PersistentFlags().Lookup("config"))
+	viper.BindPFlag("bitnode.db", rootCmd.PersistentFlags().Lookup("config"))
 }

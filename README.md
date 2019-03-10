@@ -1,48 +1,48 @@
 # Cluster
 
-Controller node cluster management using gRPC and mDNS service discovery. Each node will watch for mDNS entries on the network. When the controller entry is found it will send a checkin message with it's details to the controllers gRPC service. From then on the controller and communicate with all nodes that have checked in.
+Controller node bitnode management using gRPC and mDNS service discovery. Each node will watch for mDNS entries on the network. When the controller entry is found it will send a checkin message with it's details to the controllers gRPC service. From then on the controller and communicate with all nodes that have checked in.
 
 ## Usage
 ```bash
 Cluster managament application
 
 Usage:
-  cluster [command]
+  bitnode [command]
 
 Available Commands:
   execute     execute a command on a node
-  group       Commands for managing groups withing the cluster
+  group       Commands for managing groups withing the bitnode
   help        Help about any command
-  node        Commands for managing nodes withing the cluster
+  node        Commands for managing nodes withing the bitnode
   ping        Send a ping to each node
 
 Flags:
-  -c, --config string   Path to cluster config.db file (default "/Users/username/.cluster/config.db")
-  -h, --help            help for cluster
-      --version         version for cluster
+  -c, --config string   Path to bitnode config.db file (default "/Users/username/.bitnode/config.db")
+  -h, --help            help for bitnode
+      --version         version for bitnode
 
-Use "cluster [command] --help" for more information about a command.
+Use "bitnode [command] --help" for more information about a command.
 ```
 
 ### Node
 #### Deploy Node
 ```bash
-./cluster node deploy
+./bitnode node deploy
 ```
 
 #### Find Nodes
 ```bash
-./cluster node scan
+./bitnode node scan
 ```
 
 #### Rename Node
 ```bash
-./cluster node name node1 new_node1
+./bitnode node name node1 new_node1
 ```
 
 #### List Nodes
 ```bash
-./cluster node list
+./bitnode node list
 
 Name		Hostname	    IP:Port			        Last Seen		        ID
 node1		bdd4e94392d2	192.168.1.135:10000	    2018-04-01 13:42:14	    f4f18505b85b
@@ -53,7 +53,7 @@ node4		raspberrypi	192.168.1.128:10000	    2018-04-01 13:58:17	    8c8f0945ce28
 
 #### Node Online Check
 ```bash
-./cluster ping node1
+./bitnode ping node1
 
 NODE		ONLINE
 node1		true
@@ -63,17 +63,17 @@ node1		true
 
 #### Create Group
 ```bash
-./cluster group create group1 node1 node2 node3 node4
+./bitnode group create group1 node1 node2 node3 node4
 ```
 
 #### Create Group
 ```bash
-./cluster group create group1 node1 node2 node3 node4
+./bitnode group create group1 node1 node2 node3 node4
 ```
 
 #### List Groups
 ```bash
-./cluster group list
+./bitnode group list
 
 Name		Nodes		Created			        ID
 group		4		    2018-04-01 20:27:17	    7bb3f4a7ea8e
@@ -81,7 +81,7 @@ group		4		    2018-04-01 20:27:17	    7bb3f4a7ea8e
 
 #### Group Details
 ```bash
-./cluster group details group1
+./bitnode group details group1
 
 id: 47282399-3344-4815-916d-7bb3f4a7ea8e
 nickname: group1
@@ -128,7 +128,7 @@ createdate: 2018-04-01T20:27:17.824959-05:00
 
 #### Execute Command On Group
 ```bash
-./cluster execute group1 -- lsb_release -da
+./bitnode execute group1 -- lsb_release -da
 
 Response from node2
 ====================================================================

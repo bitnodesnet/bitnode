@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/bah2830/cluster/service"
+	"github.com/bitnodesnet/bitnode/service"
 	"github.com/hashicorp/mdns"
 	"github.com/spf13/viper"
 )
@@ -85,7 +85,7 @@ func (n *Node) startMDNS() *mdns.Server {
 		"",
 		viper.GetInt("rpc.port"),
 		[]net.IP{addr},
-		[]string{"cluster_management"},
+		[]string{"bitnode_management"},
 	)
 	if err != nil {
 		log.Fatal(err)

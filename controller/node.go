@@ -7,7 +7,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/bah2830/cluster/service"
+	"github.com/bitnodesnet/bitnode/service"
 	"github.com/boltdb/bolt"
 	"google.golang.org/grpc"
 )

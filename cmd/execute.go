@@ -3,7 +3,7 @@ package cmd
 import (
 	"strings"
 
-	"github.com/bah2830/cluster/controller"
+	"github.com/bitnodesnet/bitnode/controller"
 	"github.com/spf13/cobra"
 )
 

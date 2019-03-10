@@ -1,13 +1,13 @@
 package cmd
 
 import (
-	"github.com/bah2830/cluster/cmd/group"
+	"github.com/bitnodesnet/bitnode/cmd/group"
 	"github.com/spf13/cobra"
 )
 
 var groupCmd = &cobra.Command{
 	Use:   "group",
-	Short: "Commands for managing groups withing the cluster",
+	Short: "Commands for managing groups withing the bitnode",
 }
 
 func init() {

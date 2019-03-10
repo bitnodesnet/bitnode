@@ -65,8 +65,8 @@ And then I set that in my command definition:
 ```go
 cmds := &cobra.Command{
 	Use:   "kubectl",
-	Short: "kubectl controls the Kubernetes cluster manager",
-	Long: `kubectl controls the Kubernetes cluster manager.
+	Short: "kubectl controls the Kubernetes bitnode manager",
+	Long: `kubectl controls the Kubernetes bitnode manager.
 
 Find more information at https://github.com/GoogleCloudPlatform/kubernetes.`,
 	Run: runHelp,

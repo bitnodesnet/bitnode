@@ -13,7 +13,7 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/bah2830/cluster/service"
+	"github.com/bitnodesnet/bitnode/service"
 	"github.com/boltdb/bolt"
 	"github.com/google/uuid"
 	"github.com/hashicorp/mdns"
@@ -62,9 +62,9 @@ func GetController() *Controller {
 	user, _ := user.Current()
 
 	// Init database directory if it doesn't already exist
-	if _, err := os.Stat(user.HomeDir + "/.cluster"); os.IsNotExist(err) {
-		log.Println("Initializing ~/.cluster directory")
-		os.Mkdir(user.HomeDir+"/.cluster", 0700)
+	if _, err := os.Stat(user.HomeDir + "/.bitnode"); os.IsNotExist(err) {
+		log.Println("Initializing ~/.bitnode directory")
+		os.Mkdir(user.HomeDir+"/.bitnode", 0700)
 	}
 
 	getDBConnection()
@@ -86,7 +86,7 @@ func getDBConnection() *bolt.DB {
 		return dbClient
 	}
 
-	db, err := bolt.Open(viper.GetString("cluster.db"), 0600, &bolt.Options{Timeout: 1 * time.Second})
+	db, err := bolt.Open(viper.GetString("bitnode.db"), 0600, &bolt.Options{Timeout: 1 * time.Second})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -373,7 +373,7 @@ func (c *Controller) Execute(identifier, command string) {
 }
 
 func (c *Controller) FindNodes() {
-	log.Printf("Searcing for cluster nodes on mdns service %s", viper.GetString("mdns.service"))
+	log.Printf("Searcing for bitnode nodes on mdns service %s", viper.GetString("mdns.service"))
 	entriesCh := make(chan *mdns.ServiceEntry, 4)
 	defer close(entriesCh)
 

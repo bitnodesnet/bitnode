@@ -8,7 +8,7 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/bah2830/cluster/service"
+	"github.com/bitnodesnet/bitnode/service"
 	"github.com/boltdb/bolt"
 )
 

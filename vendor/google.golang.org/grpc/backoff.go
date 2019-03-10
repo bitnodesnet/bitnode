@@ -86,7 +86,7 @@ func (bc BackoffConfig) backoff(retries int) time.Duration {
 	if backoff > max {
 		backoff = max
 	}
-	// Randomize backoff delays so that if a cluster of requests start at
+	// Randomize backoff delays so that if a bitnode of requests start at
 	// the same time, they won't operate in lockstep.
 	backoff *= 1 + bc.jitter*(rand.Float64()*2-1)
 	if backoff < 0 {
